@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', "HomeController@index");
+
+Route::group(['prefix'=>'post'], function() {
+    Route::get('/{id?}', "PostController@index")->where('id','[0-9]?');
+    Route::get('/detail/{id}', 'PostController@show')->where('id', '[0-9]+');
+    Route::post('/', "PostController@store");
 });
