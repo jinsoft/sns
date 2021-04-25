@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Post::class, function (Faker $faker) {
     return [
-        'title' => trim($faker->title,'.'),
+        'title' => trim($faker->sentence,'.'),
         'content' => $faker->text(500)
     ];
 });
